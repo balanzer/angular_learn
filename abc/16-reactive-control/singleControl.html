@@ -1,0 +1,10 @@
+<div class="card">
+  <div class="card-content">
+    <div class="card-title">Reactive Control</div>
+    <label>Enter data here:
+    <input type="text" [formControl]="myFormControl"></label>
+    <p>Value: {{myFormControl.value}}</p>
+    <p>Validity: {{myFormControl.valid}}</p>
+    <button class="btn btn-default" (click)="setValue()">Set Value</button>
+  </div>
+</div>

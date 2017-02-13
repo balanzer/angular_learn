@@ -1,0 +1,14 @@
+<div class="row">
+  <div class="col s6">
+    <employee-list
+      [employees]="employees | async"
+      (selectedEmployee)="selectedEmployeeId.next($event)">
+    </employee-list>
+  </div>
+  <div class="col s6">
+    <p>Loading status: <b>{{ status | async }}</b></p>
+    <employee-display
+      [style.visibility]="(showEmployeeDetails | async) ? 'visible' : 'hidden'"
+      [employee]="selectedEmployee | async"></employee-display>
+  </div>
+</div>

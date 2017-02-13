@@ -1,0 +1,16 @@
+<h3>Weather for {{city}}:</h3>
+<p>current temperature: {{ currently?.temperature }}</p>
+<p>current windSpeed: {{ currently?.windSpeed }}</p>
+
+<table class="table table-condensed">
+  <tr>
+    <th>Time</th>
+    <th>Temp</th>
+    <th>Precip</th>
+  </tr>
+  <tr *ngFor="let d of hourly$ | async">
+    <td>{{ d.time | secondsToDate | date:'H:m:s' }}</td>
+    <td>{{ d.temperature }}</td>
+    <td>{{ d.precipIntensity }}</td>
+  </tr>
+</table>

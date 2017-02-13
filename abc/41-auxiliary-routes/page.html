@@ -1,0 +1,40 @@
+<div class="row">
+  <header class="col s12">Header goes here
+  </header>
+</div>
+<div class="row">
+  <div class="col s3">
+    <div class="card-panel purple lighten-4">
+      <h4>Navigation:</h4>
+      <a [routerLink]="['home']">Home</a>
+      <br>
+      <a [routerLink]="['hello', 'Brian']">Hello Brian</a>
+      <br>
+      <a [routerLink]="['hello', 'Bill']">Hello Bill</a>
+      <br>
+      <a [routerLink]="['blue']">Blue</a>
+      <hr>
+      <p>side options:</p>
+      <a [routerLink]="[{ outlets: { side: 'chat' }}]">Chat</a>
+      <br>
+      <a [routerLink]="[{ outlets: { side: 'task' }}]">Tasks</a>
+      <br>
+      <a [routerLink]="[{ outlets: { primary: 'home', side: 'chat' }}]">Home+Chat</a>
+    </div>
+  </div>
+  <div class="col s6">
+    <main class="card-panel teal lighten-2">
+      <h4>Main Content:</h4>
+      <router-outlet></router-outlet>
+    </main>
+  </div>
+  <div class="col s3">
+    <aside class="card-panel purple lighten-4">
+      <h4>Extra:</h4>
+      <router-outlet name="side"></router-outlet>
+    </aside>
+  </div>
+</div>
+<div class="row">
+  <footer class="col s12">(footer goes here)</footer>
+</div>

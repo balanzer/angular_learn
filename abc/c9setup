@@ -1,0 +1,44 @@
+# Run me with "source":
+# . c9setup
+
+start=`date +%s`
+
+# Avoid old default Node 4.x.
+nvm install 7
+nvm use 7
+nvm alias default 7
+
+# Install Yarn using its install script:
+curl -o- -L https://yarnpkg.com/install.sh | bash
+export PATH="$HOME/.yarn/bin:$PATH"
+
+# live-server and json-server global installs, handy if
+# someone wants to run them at the command line.
+yarn global add live-server json-server
+
+# Angular CLI, nailed to a working version:
+yarn global add angular-cli@1.0.0-beta.19-3
+
+# Create new CLI application
+cd ~/workspace
+ng new workshop-app --skip-npm
+
+# Save time by using yarn instead of npm
+cd workshop-app
+yarn
+
+# Set ports for online IDE.
+echo '{ "port": 8081, "live-reload-port": 8082, "host": "0.0.0.0"}' >.ember-cli
+
+# Install typings for the abc kit, in case C9 adds TypeScript help
+cd ~/workspace
+cd abc || echo "ok, no abc dir"
+yarn
+
+end=`date +%s`
+runtime=$((end-start))
+echo "Setup script execution time (seconds): ${runtime}"
+
+# run live-server and json-server, ready to start class.
+echo "Use 'Preview Running Application' to obtain the served URL."
+npm start

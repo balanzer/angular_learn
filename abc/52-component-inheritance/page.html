@@ -1,0 +1,7 @@
+<br>
+
+<button (click)="toggleView()" [disabled]="showList" class="btn">List</button>
+<button (click)="toggleView()" [disabled]="!showList" class="btn">Grid</button>
+
+<app-employee-list [employees]="myEmployees" (select)="logEmployee($event)" *ngIf="showList"></app-employee-list>
+<app-employee-grid [employees]="myEmployees" (select)="logEmployee($event)" *ngIf="!showList"></app-employee-grid>

@@ -1,0 +1,16 @@
+<header style="margin-top: 5px;">
+  <nav>
+    <div class="nav-wrapper">
+      <ul>
+        <li routerLinkActive="green-background">
+          <a [routerLink]="['/home']">Home</a></li>
+        <li routerLinkActive="green-background">
+          <a [routerLink]="['/hello']">Hello</a></li>
+      </ul>
+    </div>
+  </nav>
+</header>
+<div>
+  <router-outlet></router-outlet>
+  <div>footer could be here</div>
+</div>

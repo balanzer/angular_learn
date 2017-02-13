@@ -1,0 +1,11 @@
+jspm_packages
+node_modules
+typings
+Workshop
+workshop
+*.bak
+*.rej
+*.min.js
+build
+aot
+aot-index.html

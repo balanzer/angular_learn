@@ -1,0 +1,21 @@
+<h4>Login Form</h4>
+<form [formGroup]="locationFormGroup" (ngSubmit)="onLogin()">
+  <div class="row">
+    <div class="col s6">
+      <label for="city">City</label>
+      <input id="city" type="text" formControlName="city">
+    </div>
+    <div class="col s6">
+      <label for="state">State</label>
+      <input id="state" type="text" formControlName="state">
+    </div>
+  </div>
+</form>
+<div class="card">
+  <div class="card-content">
+    <div class="card-title">Data behind the location form</div>
+    Form Object:<pre>{{locationFormGroup.value | json}}</pre>
+    <button class="btn" (click)="logTheForm()">Console.log form state</button>
+  </div>
+</div>
+

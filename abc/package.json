@@ -1,0 +1,45 @@
+{
+  "private": true,
+  "dependencies": {
+    "@angular/common": "2.4.6",
+    "@angular/compiler": "2.4.6",
+    "@angular/core": "2.4.6",
+    "@angular/forms": "2.4.6",
+    "@angular/http": "2.4.6",
+    "@angular/platform-browser": "2.4.6",
+    "@angular/platform-browser-dynamic": "2.4.6",
+    "@angular/router": "3.4.6",
+    "@ngrx/core": "^1.2.0",
+    "@ngrx/store": "^2.2.1",
+    "@ngrx/store-devtools": "^3.2.2",
+    "@ngrx/store-log-monitor": "^3.0.2",
+    "angular2-firebase": "^0.7.4",
+    "core-js": "2.4.1",
+    "lodash": "^4.17.4",
+    "rxjs": "5.0.1",
+    "zone.js": "0.7.4"
+  },
+  "devDependencies": {
+    "@angular/compiler-cli": "2.4.6",
+    "@types/firebase": "^2.4.31",
+    "@types/jasmine": "^2.5.40",
+    "@types/lodash": "^4.14.47",
+    "concurrently": "^3.1.0",
+    "copyfiles": "^1.0.0",
+    "jasmine-core": "^2.5.2",
+    "json-server": "^0.9.4",
+    "live-server": "1.1.0",
+    "rollup": "^0.41.4",
+    "rollup-plugin-commonjs": "^7.0.0",
+    "rollup-plugin-node-resolve": "^2.0.0",
+    "rollup-plugin-uglify": "^1.0.1",
+    "tslint": "^4.3.1",
+    "typescript": "2.1.4"
+  },
+  "scripts": {
+    "fixdb": "copyfiles -f demo-data/backup/db.json demo-data",
+    "live": "live-server --no-browser --wait=400 --proxy=/api:http://localhost:8085 -q",
+    "json": "json-server --port 8085 --host 0.0.0.0 --delay 200 --watch demo-data/db.json",
+    "start": "concurrently --kill-others \"npm run live\" \"npm run json\""
+  }
+}

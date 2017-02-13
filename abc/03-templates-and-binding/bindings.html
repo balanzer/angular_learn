@@ -1,0 +1,42 @@
+<!-- Following kept free of styling to aid in demonstration -->
+
+<h4>My {{version}} Angular App</h4>
+
+<p>Hello, {{person}}</p>
+
+<p [innerText]="person"></p>
+
+<h4>Expressions</h4>
+
+<p>3 + 4 = {{ 3 + 4 }}</p>
+
+<p>My mother is {{ personObject.mother + "!!" }}</p>
+
+<p [innerText]="  'My mother is ' + personObject.mother + '!!'  "></p>
+
+<!--
+  Function calls in template bindings don't work with
+  Ahead-of-Time (AoT) compilation and are best avoided.
+-->
+<p>Function result is {{ calculate() }}</p>
+
+<p>In some earlier alphas, this would be an error:</p>
+<p>Made up variable: {{ madeUpVariableName }}</p>
+
+<h4>Sanitization</h4>
+
+<p>Sanitized by <b>Angular</b>:</p>
+<p [innerHtml]="stringWithHtml"></p>
+
+<p>
+  If you bind to innerText, the <b>browser</b> does it
+  (note the different output):
+</p>
+<p [innerText]="stringWithHtml"></p>
+
+<!--
+  See the "sanitization" lesson for more information on how
+  Angular processes HTML, CSS, and JavaScript before they're
+  sent to the browser.
+-->
+

@@ -1,0 +1,55 @@
+<form [formGroup]="configFormGroup" class="row" style="margin-top: 50px;">
+  <div class="col s4">
+    Data Source
+    <select formControlName="data">
+      <option value="mutable">Mutated Array</option>
+      <option value="immutable">Replaced Array</option>
+      <option value="observable">Observable | async</option>
+    </select>
+  </div>
+  <div class="col s4">
+    Change Detection Strategy
+    <select formControlName="strategy">
+      <option value="default">Default</option>
+      <option value="onpush">OnPush</option>
+    </select>
+  </div>
+  <div class="col s4">
+    <div>Control the data from outside</div>
+    <div>
+    <button class="btn" (click)="ids.addRandomItem()">Add Item</button>
+    <button class="btn" (click)="ids.toggleAllItems()">Toggle All</button>
+    </div>
+  </div>
+</form>
+
+<div class="row">
+  <div class="col s8">
+    <p>Selected: {{configFormGroup.value.data + '-' + configFormGroup.value.strategy}}</p>
+    <div [ngSwitch]="configFormGroup.value.data + '-' + configFormGroup.value.strategy">
+      <div *ngSwitchCase="'mutable-default'">
+        <default-strategy [items]="ids.itemList1" (toggleItem)="ids.toggleItem($event)"></default-strategy>
+      </div>
+
+      <div *ngSwitchCase="'immutable-default'">
+        <default-strategy [items]="ids.itemList2" (toggleItem)="ids.toggleItem($event)"></default-strategy>
+      </div>
+
+      <div *ngSwitchCase="'observable-default'">
+        <default-strategy [items]="ids.itemList3 | async" (toggleItem)="ids.toggleItem($event)"></default-strategy>
+      </div>
+
+      <div *ngSwitchCase="'mutable-onpush'">
+        <onpush-strategy [items]="ids.itemList1" (toggleItem)="ids.toggleItem($event)"></onpush-strategy>
+      </div>
+
+      <div *ngSwitchCase="'immutable-onpush'">
+        <onpush-strategy [items]="ids.itemList2" (toggleItem)="ids.toggleItem($event)"></onpush-strategy>
+      </div>
+
+      <div *ngSwitchCase="'observable-onpush'">
+        <onpush-strategy [items]="ids.itemList3 | async" (toggleItem)="ids.toggleItem($event)"></onpush-strategy>
+      </div>
+    </div>
+  </div>
+</div>
